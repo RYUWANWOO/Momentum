@@ -14,7 +14,8 @@ function saveToDos(){
 function deleteToDo(event){
     const li = event.target.parentElement;
     li.remove();
-    
+    toDos = toDos.filter((item)=>item.id !== parseInt(li.id));
+    saveToDos();
 }
 
 
@@ -53,5 +54,6 @@ console.log(savedToDos);
 if(savedToDos){
     const parsedToDos = JSON.parse(savedToDos);
     toDos = parsedToDos;
-    parsedToDos.forEach(paintToDo);
+    parsedToDos.forEach(paintToDo); //foreach function basically execute paintodo function, and foreach take some item one by one in
+    //that array;
 }
